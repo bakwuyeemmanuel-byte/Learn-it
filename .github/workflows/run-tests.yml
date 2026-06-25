@@ -1,0 +1,24 @@
+# Learn It - GitHub Actions Automated Execution Pipeline (File 11)
+name: Run Learn It Test Suite
+
+# Trigger this workflow automatically every time someone pushes code to the repository
+on: [push, pull_request]
+
+jobs:
+  execute-modules:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository code onto the automated cloud server
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Node.js environmental runtime engine
+    - name: Set up Node.js Runtime
+      uses: actions/setup-node@v4
+      with:
+        node-node-version: '20'
+
+    # Step 3: Run our main execution engine to ensure no modules crash
+    - name: Run Learn It Simulation Sandbox
+      run: node src/index.js
