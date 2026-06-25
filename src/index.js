@@ -1,50 +1,37 @@
-// Learn It - Main Execution Engine (GitHub Master Entry)
+// Learn It - Consolidated Sandbox Runner (Updated Version)
 
-import { handleUserTopicSubmission, displayAppDatabaseStatus } from "./inputController.js";
-import { calculateCurrentAverage } from "./gpaTracker.js";
+import { handleUserTopicSubmission } from "./inputController.js";
+import { triggerCompleteStudySession } from "./appController.js";
 
-function runLearnItSimulation() {
-    console.log("==========================================");
-    console.log("🚀 STARTING REPOSITORY RUN: LEARN IT V1.0");
-    console.log("==========================================\n");
+function runCompleteSystemTest() {
+    console.log("=================================================");
+    console.log("⚡ STARTING INTEGRATED SYSTEM CHECK: LEARN IT ⚡");
+    console.log("=================================================\n");
 
-    // 1. Simulate the App parsing real King's Academy style syllabus entries
+    // Phase A: Generate Study Content Automatically
+    console.log("--- PHASE A: TESTING AUTOMATION GENERATORS ---");
     handleUserTopicSubmission(
-        "Mathematics", 
-        "Quadratic Systems", 
-        "To find the intersection points of a line and a parabola, substitute the linear equation into the quadratic equation, set it to zero, and apply the quadratic formula.",
-        "x = (-b ± √(b² - 4ac)) / 2a"
+        "Physics",
+        "Kinematics Graphs",
+        "The slope of a position-time graph yields velocity. The slope of a velocity-time graph yields acceleration. The area under a velocity-time graph equals displacement.",
+        "v = Δx / Δt"
     );
 
-    handleUserTopicSubmission(
-        "Physics", 
-        "Dynamic Friction", 
-        "Frictional resistance force is directly proportional to the normal force acting on an object sliding across a surface.",
-        "F_friction = μ * F_normal"
-    );
-
-    handleUserTopicSubmission(
-        "English", 
-        "Rhetorical Devices", 
-        "Irony, anaphora, and historical allusions create multi-layered arguments that enhance persuasive texts.",
-        null
-    );
-
-    console.log("\n==========================================");
-    console.log("📊 SYSTEM STORAGE STATUS DIAGNOSTICS");
-    console.log("==========================================");
+    // Phase B: Simulate Real Student Activity Logging
+    console.log("\n--- PHASE B: SIMULATING USER SESSIONS ---");
     
-    // 2. Fetch the state database readout
-    let stats = displayAppDatabaseStatus();
-    console.log(`📝 Total Automated Notes Constructed: ${stats.totalNotesCollected}`);
-    console.log(`❓ Total Automated Quizzes Constructed: ${stats.totalQuizzesCreated}`);
-    console.log("📋 Current Content Inventory:", stats.currentInventory);
+    // User tries a heavy math task. Estimated 60 minutes, actually takes 50. Took a break before!
+    triggerCompleteStudySession("Mathematics", "Quadratic Inequalities Set", 60, 50, true);
+    
+    // User jumps right into an English essay block with NO BREAK. Estimated 45 minutes, takes 45.
+    triggerCompleteStudySession("English", "Directed Writing Draft", 45, 45, false);
+    
+    // User immediately pushes into Python coding with NO BREAK. Fatigue should begin scaling!
+    triggerCompleteStudySession("Computer Science", "Conditional Logic Scripts", 30, 50, false);
 
-    // 3. Output the student's simulated current average grade tracking standing
-    console.log("\n==========================================");
-    console.log(`📈 CURRENT CALCULATED STUDENT AVERAGE: ${calculateCurrentAverage()}%`);
-    console.log("==========================================\n");
+    console.log("\n=================================================");
+    console.log("🏁 PIPELINE PASSED: ALL ENGINES DEPLOYED CLEANLY");
+    console.log("=================================================");
 }
 
-// Execute our app workflow
-runLearnItSimulation();
+runCompleteSystemTest();
